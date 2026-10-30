@@ -1,0 +1,822 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --navy: #080d1c;
+    --navy-light: #14213d;
+    --gold: #d7b76a;
+    --gold-light: #f1d99a;
+    --silver: #cbd2e2;
+    --white: #f5f4f0;
+    --muted: #929bb1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* BACKGROUND */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, #fff 99%, transparent),
+        radial-gradient(2px 2px at 30% 70%, #d7b76a 99%, transparent),
+        radial-gradient(1px 1px at 70% 30%, #fff 99%, transparent),
+        radial-gradient(2px 2px at 85% 80%, #fff 99%, transparent),
+        radial-gradient(1px 1px at 50% 50%, #fff 99%, transparent);
+
+    background-size: 220px 220px;
+    opacity: 0.5;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    padding: 90px 20px 70px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+.hero h1 {
+    margin-top: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 400;
+    color: var(--silver);
+    line-height: 1.1;
+}
+
+.hero h1 span,
+.section-heading h2 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.hero-subtitle {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* COUNTDOWN */
+
+.countdown-section {
+    margin-top: 55px;
+}
+
+.countdown-label {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.time-box {
+    width: 78px;
+    padding: 15px 5px;
+    border: 1px solid rgba(215,183,106,0.3);
+    background: rgba(255,255,255,0.025);
+}
+
+.time-box span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: var(--gold-light);
+}
+
+.time-box small {
+    display: block;
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+#countdownCaption {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 18px;
+}
+
+/* JOURNEY */
+
+.journey-section {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 50px 25px 100px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    margin: 18px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 58px);
+    color: var(--silver);
+}
+
+.section-heading > p:last-child {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* DAY CARDS */
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.day-card {
+    min-height: 210px;
+    padding: 28px 15px;
+
+    border: 1px solid rgba(215,183,106,0.23);
+
+    background: linear-gradient(
+        145deg,
+        rgba(20,31,56,0.85),
+        rgba(8,13,28,0.95)
+    );
+
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 35px rgba(215,183,106,0.1);
+}
+
+.day-card.locked {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.day-card-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.day-number {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+}
+
+.day-lock {
+    font-size: 22px;
+}
+
+.day-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--silver);
+    margin-top: 15px;
+}
+
+.day-card p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+.day-card-link {
+    margin-top: 15px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(215,183,106,0.15);
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer span {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* MODALS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(2,5,14,0.88);
+    backdrop-filter: blur(9px);
+
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-card {
+    position: relative;
+    width: min(650px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+
+    padding: 55px 35px;
+
+    border: 1px solid rgba(215,183,106,0.45);
+
+    background: linear-gradient(
+        145deg,
+        #14213d,
+        #091020
+    );
+
+    text-align: center;
+
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+
+.close-button {
+    position: absolute;
+    right: 18px;
+    top: 12px;
+
+    border: none;
+    background: none;
+
+    color: var(--silver);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: var(--gold);
+}
+
+/* PASSWORD */
+
+.password-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 18px 0;
+    color: var(--gold-light);
+}
+
+.modal-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+#dayPassword {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+
+    color: white;
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(215,183,106,0.4);
+    outline: none;
+
+    text-align: center;
+    font-size: 14px;
+}
+
+#dayPassword:focus {
+    border-color: var(--gold);
+}
+
+.gold-button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 14px 25px;
+
+    background: var(--gold);
+    color: #101525;
+
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.error-message {
+    min-height: 20px;
+    margin-top: 10px;
+    color: #ff9b9b;
+    font-size: 12px;
+}
+
+/* SURPRISE CONTENT */
+
+.surprise-body {
+    color: var(--silver);
+    line-height: 1.9;
+}
+
+.surprise-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold-light);
+    font-size: 38px;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+.surprise-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.surprise-body p {
+    font-size: 14px;
+    margin: 13px 0;
+}
+
+.signature {
+    color: var(--gold-light);
+    margin-top: 25px !important;
+}
+
+/* LETTER */
+
+.letter-content {
+    max-width: 480px;
+    margin: auto;
+    text-align: left;
+}
+
+.letter-content p {
+    margin-bottom: 17px;
+}
+
+/* DAY 2: VEGA FILES */
+
+.mission-label {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.mission-progress {
+    margin: 20px 0;
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.mission-clue {
+    padding: 25px 18px;
+    margin: 20px 0;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(215,183,106,0.25);
+}
+
+.mission-clue h3 {
+    margin-top: 0;
+}
+
+.mission-input {
+    width: 100%;
+    max-width: 330px;
+    padding: 14px;
+
+    color: white;
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(215,183,106,0.4);
+    outline: none;
+
+    text-align: center;
+    font-size: 14px;
+}
+
+.mission-button {
+    display: block;
+    margin: 15px auto;
+    padding: 13px 25px;
+
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.mission-feedback {
+    min-height: 25px;
+    color: var(--gold-light);
+    font-size: 12px !important;
+}
+
+.mission-complete {
+    padding: 20px;
+    border: 1px solid var(--gold);
+    background: rgba(215,183,106,0.07);
+}
+
+.mission-complete h2 {
+    font-size: 30px;
+}
+
+/* DAY 4: PUZZLE */
+
+.puzzle-instruction {
+    margin: 15px 0 25px !important;
+    color: var(--muted);
+}
+
+.puzzle-board {
+    width: min(100%, 390px);
+    aspect-ratio: 1 / 1;
+    margin: 25px auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+
+    gap: 3px;
+    padding: 4px;
+
+    background: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.puzzle-piece {
+    min-width: 0;
+    min-height: 0;
+
+    background-repeat: no-repeat;
+    background-color: #15213b;
+
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.puzzle-piece.selected {
+    border: 3px solid #fff1a9;
+    filter: brightness(1.35);
+}
+
+.puzzle-message {
+    color: var(--gold-light);
+    margin: 20px 0 !important;
+}
+
+.puzzle-error {
+    color: #ff9b9b;
+    font-size: 12px;
+}
+
+/* DAY 5: FAMILY PHOTO */
+
+.dream-photo-wrap {
+    max-width: 430px;
+    margin: 25px auto;
+    padding: 10px;
+
+    background: linear-gradient(
+        145deg,
+        #f1d99a,
+        #a98a4e,
+        #f1d99a
+    );
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+}
+
+.dream-photo {
+    display: block;
+    width: 100%;
+    max-height: 570px;
+    object-fit: cover;
+    border: 2px solid var(--navy);
+}
+
+.dream-caption {
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px !important;
+    font-style: italic;
+    margin-top: 25px !important;
+}
+
+.dream-subtitle {
+    color: var(--muted);
+    font-size: 11px !important;
+    letter-spacing: 2px;
+}
+
+/* DAY 6: PLAYLIST */
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 430px;
+    margin: 25px auto;
+}
+
+.song-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+
+    text-decoration: none;
+    color: var(--silver);
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(215,183,106,0.25);
+
+    transition: 0.3s;
+}
+
+.song-card:hover {
+    border-color: var(--gold);
+    background: rgba(215,183,106,0.1);
+}
+
+.song-number {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+}
+
+.song-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.song-info strong {
+    font-size: 13px;
+}
+
+.song-info small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.song-play {
+    color: var(--gold);
+}
+
+.playlist-footer {
+    color: var(--gold);
+    font-size: 10px !important;
+    letter-spacing: 2px;
+}
+
+/* DAY 8: AWARDS */
+
+.award-card {
+    margin: 15px auto;
+    padding: 18px;
+
+    max-width: 430px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(215,183,106,0.25);
+}
+
+.award-number {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.award-card h3 {
+    margin: 8px 0;
+}
+
+.award-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* DAY 10: CONSTELLATION */
+
+.constellation {
+    max-width: 430px;
+    margin: 25px auto;
+    padding: 20px 5px;
+}
+
+.constellation svg {
+    width: 100%;
+    overflow: visible;
+}
+
+.constellation line {
+    stroke: var(--gold);
+    stroke-width: 1.5;
+}
+
+.constellation circle {
+    fill: #fff3c4;
+    stroke: var(--gold);
+    stroke-width: 2;
+}
+
+.constellation text {
+    fill: var(--gold-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-anchor: middle;
+}
+
+.star-details p {
+    color: var(--silver);
+}
+
+/* DAY 12: FINAL */
+
+.final-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 8vw, 60px);
+    color: var(--gold-light);
+    line-height: 1.2;
+}
+
+.final-content h2 {
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.final-stars {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.final-access,
+.final-message {
+    color: var(--gold-light);
+    letter-spacing: 3px;
+}
+
+.final-link {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 25px;
+
+    background: var(--gold);
+    color: var(--navy);
+
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .days-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+
+    .hero {
+        min-height: 500px;
+        padding: 65px 15px;
+    }
+
+    .countdown {
+        gap: 7px;
+    }
+
+    .time-box {
+        width: 68px;
+        padding: 12px 3px;
+    }
+
+    .time-box span {
+        font-size: 27px;
+    }
+
+    .days-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .day-card {
+        min-height: 175px;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-card {
+        padding: 50px 18px 30px;
+        max-height: 90vh;
+    }
+
+    .surprise-body h2 {
+        font-size: 31px;
+    }
+
+    .puzzle-board {
+        width: 100%;
+        gap: 2px;
+    }
+
+    .dream-photo-wrap {
+        padding: 6px;
+    }
+
+    .dream-caption {
+        font-size: 21px !important;
+    }
+}

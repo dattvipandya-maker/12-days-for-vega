@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d1c">
+
+    <title>12 Days for Vega | A Universe of Us</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+        <h1>Twelve Little<br><span>Universes</span></h1>
+
+        <p class="hero-subtitle">
+            Each day holds something meant only for you.
+        </p>
+
+        <!-- COUNTDOWN -->
+        <div class="countdown-section">
+
+            <p class="countdown-label">COUNTING DOWN TO YOUR DAY</p>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>DAYS</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+            </div>
+
+            <p id="countdownCaption">UNTIL YOUR UNIVERSE BEGINS</p>
+
+        </div>
+
+    </header>
+
+    <!-- JOURNEY -->
+    <main class="journey-section">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">YOUR BIRTHDAY JOURNEY</p>
+
+            <h2>Twelve Little <span>Universes</span></h2>
+
+            <p>
+                Twelve days. Twelve little surprises.
+                One person who means the universe.
+            </p>
+
+        </div>
+
+        <div class="days-grid" id="daysGrid"></div>
+
+    </main>
+
+    <!-- PASSWORD MODAL -->
+    <div class="modal" id="passwordModal">
+
+        <div class="modal-card password-card">
+
+            <button
+                type="button"
+                class="close-button"
+                data-close-password
+                aria-label="Close">
+                &times;
+            </button>
+
+            <p class="eyebrow">A LITTLE DOOR AWAITS</p>
+
+            <h2 id="modalTitle">Unlock Your Universe</h2>
+
+            <p class="modal-description" id="modalDescription">
+                Every little surprise has its own secret password.
+            </p>
+
+            <form id="passwordForm">
+
+                <input
+                    type="password"
+                    id="dayPassword"
+                    placeholder="Enter the secret password"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" class="gold-button">
+                    UNLOCK ✨
+                </button>
+
+                <p id="passwordError" class="error-message"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- SURPRISE MODAL -->
+    <div class="modal" id="surpriseModal">
+
+        <div class="modal-card surprise-card">
+
+            <button
+                type="button"
+                class="close-button"
+                data-close-surprise
+                aria-label="Close">
+                &times;
+            </button>
+
+            <div class="surprise-body" id="surpriseBody"></div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>Somewhere between the stars, there is us.</p>
+
+        <span>♡ VEGA & DENEB ♡</span>
+
+        <p>Made with love, just for you.</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
